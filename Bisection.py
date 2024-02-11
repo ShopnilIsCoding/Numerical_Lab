@@ -1,27 +1,31 @@
 f=[1,-2,0,4]
 
-def fx(x,f):
+def funcx(x,array):
+    n=len(array)-1
     result=0
-    n=len(f)-1
-    for i in range(len(f)):
-        result+=f[n]*x**i
+    for i in range(n+1):
+        result+=array[i]*x**n
         n-=1
     return result
+#print(funcx(-32,f))
+
 def bisection(xl,xu,f,epsilon):
-    fxl=fx(xl,f)
-    fxu=fx(xu,f)
+    fxl=funcx(xl,f)
+    fxu=funcx(xu,f)
     if fxl*fxu>=0:
-        print("invalid")
+        print("Invalid")
         return None
     while True:
-        xm=(xu+xl)/2
-        fxm=fx(xm,f)
+        xm=(xl+xu)/2
+        #fxl=funcx(xl,f)
+        #fxu=funcx(xu,f)
+        fxm=funcx(xm,f)
         error=abs((xm-xl)/xm)*100
         if fxl*fxm<0:
             xu=xm
         else:
             xl=xm
-        if error<=epsilon or abs(xu-xl)<epsilon:
+        if error<=epsilon or abs(xu-xl) <epsilon:
             return xm
-
 print(bisection(55,-32,f,0.005))
+#print(funcx(-1.129974365234375,f))

@@ -39,11 +39,11 @@ x = 16
 import matplotlib.pyplot as plt
 
 def plot_graph(x_values, y_values):
-   plt.plot(x_values, y_values, marker='o', linestyle='-', color='red')
+   plt.plot(x_values, y_values, marker='o', linestyle='-')
    plt.xlabel('x')
    plt.ylabel('y')
    plt.title('Plot of y vs. x')
    plt.grid(True)
    plt.show()
 
-plot_graph(x_values , y_values )
+   plot_graph(x_values , y_values )
